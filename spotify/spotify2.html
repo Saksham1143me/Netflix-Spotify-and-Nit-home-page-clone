@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Redesign</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 280px;
+            background-color: #121212;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .nav-item {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #b3b3b3;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: #1DB954;
+            cursor: pointer;
+        }
+
+        .main-content {
+            margin-left: 300px;
+            padding: 20px;
+            width: calc(100% - 300px);
+        }
+
+        .playlist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .playlist-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .playlist-header button {
+            background-color: #1DB954;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .playlist-header button:hover {
+            background-color: #1aa34a;
+        }
+
+        .track-list {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .track-list th, .track-list td {
+            padding: 12px 20px;
+            text-align: left;
+        }
+
+        .track-list th {
+            font-size: 16px;
+            color: #b3b3b3;
+            text-transform: uppercase;
+            border-bottom: 2px solid #333;
+        }
+
+        .track-list td {
+            font-size: 16px;
+            border-bottom: 1px solid #333;
+        }
+
+        .track-list tr:hover {
+            background-color: #282828;
+        }
+
+        .track-list .play-button {
+            background-color: #1DB954;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .track-list .play-button:hover {
+            background-color: #1aa34a;
+        }
+
+        .track-list .play-button svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #181818;
+            color: #b3b3b3;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 300px);
+            left: 300px;
+        }
+
+        .footer .info {
+            font-size: 14px;
+        }
+
+        .footer .controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .controls button {
+            background-color: transparent;
+            border: none;
+            color: #b3b3b3;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .footer .controls button:hover {
+            color: white;
+        }
+
+        .footer .volume {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .volume input[type="range"] {
+            margin-left: 10px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Spotify</h2>
+        <div class="nav-item active">Home</div>
+        <div class="nav-item">Search</div>
+        <div class="nav-item">Your Library</div>
+        <div class="nav-item">Create Playlist</div>
+        <div class="nav-item">Liked Songs</div>
+    </div>
+
+    <div class="main-content">
+        <div class="playlist-header">
+            <h1>My Playlist</h1>
+            <button>Add New Song</button>
+        </div>
+
+        <table class="track-list">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Duration</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Track One</td>
+                    <td>Artist One</td>
+                    <td>Album One</td>
+                    <td>3:45</td>
+                    <td><button class="play-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                    </button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Track Two</td>
+                    <td>Artist Two</td>
+                    <td>Album Two</td>
+                    <td>4:12</td>
+                    <td><button class="play-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                    </button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <div class="info">
+            <p>Now Playing: Track One by Artist One</p>
+        </div>
+        <div class="controls">
+            <button>Prev</button>
+            <button>Pause</button>
+            <button>Next</button>
+        </div>
+        <div class="volume">
+            <span>Volume</span>
+            <input type="range" min="0" max="100" value="50">
+        </div>
+    </div>
+</body>
+</html>

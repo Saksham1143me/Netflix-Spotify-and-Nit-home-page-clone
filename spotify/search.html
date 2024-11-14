@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+      body {
+        background-color: #181818;
+        font-family: 'Roboto', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: row;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background-color: #1a1a1a;
+        min-width: 280px;
+        padding: 20px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+      }
+
+      .sidebar a,
+      .sidebar button {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .sidebar a:hover,
+      .sidebar button:hover {
+        background-color: #333333;
+      }
+
+      .sidebar .logo {
+        margin-bottom: 30px;
+      }
+
+      .sidebar img {
+        width: 150px;
+        margin-bottom: 10px;
+      }
+
+      .sidebar button {
+        background-color: #1ed760;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        justify-content: center;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        background-color: #282828;
+        padding: 30px;
+        overflow-y: auto;
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .main-header .search-bar {
+        width: 60%;
+      }
+
+      .main-header input {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 50px;
+        border: none;
+        background-color: #3a3a3a;
+        color: #ffffff;
+        font-size: 16px;
+      }
+
+      .cards-section {
+        margin-top: 30px;
+      }
+
+      .cards-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        width: 190px;
+        margin: 15px;
+        padding: 15px;
+        display: inline-block;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .card-info {
+        margin-top: 10px;
+      }
+
+      .card-info h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #ffffff;
+      }
+
+      .card-info p {
+        font-size: 14px;
+        color: #b3b3b3;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #1a1a1a;
+        padding: 20px;
+        text-align: center;
+        color: #b3b3b3;
+        font-size: 14px;
+        border-top: 1px solid #333333;
+      }
+
+      .footer a {
+        color: #1ed760;
+        text-decoration: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          min-width: 200px;
+        }
+
+        .card {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .main-header .search-bar {
+          width: 80%;
+        }
+      }
+    </style>
+    <title>Spotify UI</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="logo">
+          <img src="assets/images/icon.svg" alt="Spotify Logo" />
+        </div>
+
+        <a href="./spotify.html"><span>🏠</span> Home</a>
+        <a href="#"><span>🔍</span> Search</a>
+        <a href="./spotify2.html"><span>📚</span> Your Library</a>
+        <a href="#"><span>🎧</span> Made for You</a>
+        <a href="#"><span>🔥</span> Top Hits</a>
+
+        <button>Create Playlist</button>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="main-header">
+          <div class="search-bar">
+            <input
+              type="text"
+              placeholder="Search for songs, artists, albums..."
+            />
+          </div>
+          <div>
+            <span>👤 User</span>
+          </div>
+        </div>
+
+        <!-- Cards Section -->
+        <section class="cards-section">
+          <h2>Popular Playlists</h2>
+          <div class="cards-container">
+            <div class="card">
+              <img src="./assets/images/1.jpeg" alt="Playlist 1" />
+              <div class="card-info">
+                <h3>Chill Vibes</h3>
+                <p>Lo-fi beats</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="./assets/images/2.jpeg" alt="Playlist 2" />
+              <div class="card-info">
+                <h3>Top Hits</h3>
+                <p>Hot tracks</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="./assets/images/3.jpeg" alt="Playlist 3" />
+              <div class="card-info">
+                <h3>Indie Pop</h3>
+                <p>Feel-good tunes</p>
+              </div>
+            </div>
+
+            <!-- Add more cards here -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        © 2024 Spotify, All Rights Reserved | <a href="#">Privacy Policy</a>
+      </p>
+    </footer>
+  </body>
+</html>
